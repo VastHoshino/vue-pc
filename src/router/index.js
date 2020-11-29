@@ -9,6 +9,23 @@ import Register from '../views/Register'
 
 import Search from '../views/Search'
 
+const push = VueRouter.prototype.push
+const replace = VueRouter.prototype.replace
+
+VueRouter.prototype.push = function(location, onComplete, onAbort) {
+  if (onComplete && onAbort) {
+    return push.call(this, location, onComplete, onAbort)
+  }
+  return push.call(this, location, onComplete, () => {})
+}
+
+VueRouter.prototype.replace = function(location, onComplete, onAbort) {
+  if (onComplete && onAbort) {
+    return replace.call(this, location, onComplete, onAbort)
+  }
+  return replace.call(this, location, onComplete, () => {})
+}
+
 Vue.use(VueRouter)
 
 export default new VueRouter({
@@ -26,7 +43,10 @@ export default new VueRouter({
     },
     {
       path: '/register',
-      component: Register
+      component: Register,
+      meta: {
+        isFooterHide: true
+      }
     },
     {
       path: '/search/:searchText?',

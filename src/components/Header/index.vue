@@ -34,7 +34,7 @@
       <div class="searchArea">
         <form class="searchForm" @submit.prevent="search">
           <input type="text" id="autocomplete" class="input-error input-xxlarge" />
-          <button class="sui-btn btn-xlarge btn-danger">搜索</button>
+          <button class="sui-btn btn-xlarge btn-danger" type="button">搜索</button>
         </form>
       </div>
     </div>
@@ -52,8 +52,14 @@ export default {
   methods: {
     search() {
       const { searchText } = this
-      const params = searchText ? `/${searchText}` : ''
-      const location = '/search' + params
+      const location = {
+        name: 'search',
+      }
+      if (searchText) {
+        location.params = {
+          searchText,
+        }
+      }
       this.$router.push(location)
     },
   },

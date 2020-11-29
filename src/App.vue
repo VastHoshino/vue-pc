@@ -17,7 +17,7 @@ export default {
     Footer,
   },
 }
-</script>
+</script>  
 
 <style lang="less" scoped>
 #app {

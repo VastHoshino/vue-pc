@@ -1,11 +1,10 @@
-import Vue from "vue";
-import App from "./App.vue";
+import Vue from 'vue'
+import App from './App.vue'
+import router from './router'
 
-import router from "./router";
+import './styles/reset.css'
 
-import "./styles/reset.css";
-
-Vue.config.productionTip = false;
+Vue.config.productionTip = false
 
 // new Vue({
 //   render: (h) => h(App),
@@ -13,7 +12,7 @@ Vue.config.productionTip = false;
 // }).$mount("#app");
 
 new Vue({
-  el: "#app",
-  router,
-  render: (h) => h(App),
-});
+  render: h => h(App),
+  // 应用router
+  router
+}).$mount('#app')
