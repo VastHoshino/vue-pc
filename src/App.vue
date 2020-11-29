@@ -1,22 +1,25 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <Header />
+    <router-view></router-view>
+    <Footer v-if="!$route.meta.isFooterHide" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/Header/index'
+import Footer from './components/Footer/index'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    Header,
+    Footer,
+  },
 }
 </script>
 
-<style>
+<style lang="less" scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
