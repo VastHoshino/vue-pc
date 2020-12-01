@@ -49,6 +49,7 @@ export default new VueRouter({
       }
     },
     {
+      name: 'search',
       path: '/search/:searchText?',
       component: Search
     }
